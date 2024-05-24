@@ -1,0 +1,49 @@
+if both methods have same name but different argument types:
+m1 (int)
+m1 (long)
+
+in C language, 2 methods with same name is not allowed.
+eg. abs(int), labs(long), fabs(float)
+here we need to remember different method names for different data types.
+
+But in java, single method name can be used by the help of method overloading.
+eg. abs(int), abs(long), abs(float)
+**more flexibility to the programmer.
+
+
+Note: in overloading Method resolution is done by compiler (not jvm), based on reference type.
+    hence, Method overloading is also called "compile time polymorphism", or "static polymorphism" or "early binding".
+    Reference is given at compile time and Object creation happens at runtime.
+
+eg.
+//Overloaded methods
+package class23Overloading;
+
+public class Tester1 {
+    public void m1 () {
+        System.out.println("No arg method");
+    }
+
+    public void m1 (int i) {
+        System.out.println("int arg method");
+    }
+
+    public void m1 (float f) {
+        System.out.println("float arg method");
+    }
+
+    public static void main(String[] args) {
+            Tester1 t = new Tester1();
+            //Tester1 is the reference type
+            //Here Tester1 is the runtime object --> new Tester1();
+            t.m1();
+            t.m1(2);
+            t.m1(34.5f);
+    }
+}
+
+//output:
+No arg method
+int arg method
+float arg method
+

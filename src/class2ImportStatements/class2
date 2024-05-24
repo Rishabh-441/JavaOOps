@@ -1,0 +1,70 @@
+eg.
+public class Test {
+    public static void main(String[] args) {
+        java.util.ArrayList<Integer> list = new java.util.ArrayList<>();
+    }
+}
+--this code will compile easily.
+--this is called "Fully Qualified Name".(No error)
+-------------------------------------------------------------
+eg.
+import java.util.ArrayList;     ----using import statement
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+    }
+}
+-------------------------------------------------------------
+
+there are two types of import statements:
+1. explicit import (java.util.ArrayList;)
+--readability of the code increases with explicit import.
+
+2. implicit import (java.util.*;)
+
+**(In real time we should go for explicit imports)
+
+--------------------------------------------------------------
+
+we are not required to import these packages, as they are implicitly present:
+1. java.lang package  (eg. String class)
+2. Default package (current working directory - cwd)
+--all classes present in cwd are available for our program.
+
+eg.
+package ImportStatements;
+//NO NEED TO IMPORT ANY PACKAGES. IMPLICITLY ADDED BY JAVA.LANG PACKAGE
+public class Test {
+    public static void main(String[] args) {
+        String str = new String("Rishabh");
+        Thread t = new Thread();
+        Exception e = new Exception();
+        StringBuffer sb = new StringBuffer();
+    }
+}
+
+------------------------------------------------------------------
+
+java
+  |
+  |---util
+  |     |
+        |---regex
+        |     |
+              |--Pattern
+              |
+when we import a package, all the classes and interfaces present inside the package gets imported, but not the subpackages.
+**we will have to write the import statement till the subpackage level.
+eg.
+import java.*;  (INCORRECT)
+import java.util.*; (INCORRECT)
+import java.util.regex.*; (CORRECT)
+public class Main {
+    public static void main(String[] args) {
+        Pattern p = Pattern.compile("ab");
+    }
+}
+
+________________________________________________________________________
+

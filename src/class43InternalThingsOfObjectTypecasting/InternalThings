@@ -1,0 +1,23 @@
+A <----- B <----- C (lowest child class)
+
+C c = new C();
+>> (B) c <----B type reference, C type runtime object
+>> (A)((B)c) <----- A type reference, C type runtime object
+
+______________________________________________________________
+
+String s = new String("Hello");
+Object o = (Object) s; //because of object typecasting, no new object is created, only new reference variable is created.
+                   ____________
+String s -------> |   Hello    | <------- Object o
+                  |____________|
+for reference checking : s == o ---> true
+
+e.g.
+public class Test43 {
+    public static void main(String[] args) {
+        String s = new String("Hello");
+        Object o = (Object) s;
+        System.out.println(s == o);  //true
+    }
+}

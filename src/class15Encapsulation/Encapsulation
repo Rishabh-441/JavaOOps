@@ -1,0 +1,32 @@
+Encapsulation:
+The process of grouping data members and methods into a single unit is called encapsulation.
+
+**[Encapsulation = Data hiding + abstraction]
+Hiding data behind methods, is the concept of encapsulation.
+
+eg.
+package class15Encapsulation;
+
+public class MyAccount {
+    private double balance; <<-----data hiding
+
+    public double getBalance() { <<----- the user is not allowed to use these methods, the user is only provided with the GUI screen, and the GUI interface calls these methods. (Abstraction)
+        //validate
+        return balance;
+    }
+
+    public void setBalance(double amount) {
+        //validate
+        this.balance += amount;
+    }
+}
+____________________________________________________
+
+Advantages:
+1. Security
+2. Enhancement
+3. Maintainability and Modularity
+
+Disadvantages:
+1. Time Consuming (As the data members are private, we need to implement methods to access them and always validation is required).
+2. Performance is down.

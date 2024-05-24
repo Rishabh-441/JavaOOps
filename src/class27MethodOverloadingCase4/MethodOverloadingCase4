@@ -1,0 +1,23 @@
+In the old and new concept, always old concept wins.
+for single argument: int will get preference from int variable argument.
+int... will always get least priority. If no method is matched then only var arg method will get chance.
+
+eg.
+package class27MethodOverloadingCase4;
+
+public class Tester27 {
+    public void m1 (int i) {
+        System.out.println("int type arg");
+    }
+
+    public void m1 (int... i) {
+        System.out.println("int... type arg");
+    }
+
+    public static void main(String[] args) {
+        Tester27 t = new Tester27();
+        t.m1(); //int... type args
+        t.m1(12); //int type arg
+        t.m1(1,2); //int... type arg
+    }
+}

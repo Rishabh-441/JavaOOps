@@ -1,0 +1,65 @@
+Rule:
+Object level methods (Non-static Methods)
+Class level methods (Static methods)
+>> Class level methods (Static methods) can't be replaced with object level methods.
+e.g.
+class P {
+    public static void m1() {}
+}
+class C extends P {
+    public void m1() {}  <----compile time error: overriding method is static
+}
+___________________________________
+>> Object level methods can't be replaced with class level method.
+e.g.
+class P {
+    public void m1() {}
+}
+class C extends P {
+    public static void m1() {}  <----compile time error: overriding method is non-static
+}
+__________________________________________________________________________
+**Method Hiding:
+In method hiding, method resolution is taken care by Compiler based on reference type.
+e.g.
+package class35MethodOverridingStaticMethods;
+
+class Parent35 {
+    public static void m1() {//static methods are class level methods, can't be overridden!
+        System.out.println("Parent static");
+    }
+}
+
+class C extends Parent35 {
+    // Method hiding
+    public static void m1() {
+        System.out.println("Child static");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Parent35 p = new C();
+        p.m1(); // Parent static
+
+        Parent35 p1 = new Parent35();
+        p1.m1(); // Parent static
+
+        C c = new C();
+        c.m1(); // Child static
+    }
+}
+
+NOTE: Calling static methods on instances rather than classes is a very bad practice, and should never be done.
+
+-------------------------------------------------------------------------------
+
+>> Difference between Method overriding and method hiding:
+1.Method Hiding: Both parent class and child class methods should be static.
+  Overriding: Both parent class and child class methods should be non-static.
+
+2. Method Hiding: Method resolution always taken care by compiler based on Reference type.
+   Overriding: Method resolution is always taken care by JVM based on runtime object.
+
+3. Method Hiding: It is compile time polymorphism, or static polymorphism or early binding.
+   Overriding: Overriding is runtime polymorphism, or dynamic polymorphism  or late binding.

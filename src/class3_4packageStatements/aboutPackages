@@ -1,0 +1,18 @@
+1. In any java file, at most 1 package statement should be there.
+eg.
+package p1;
+package p2;  -------> (this will give compile time error)
+public class Test {}
+
+2. In any java program, the first not commented statement should be package statement.
+eg.
+import java.util.*;
+package p1;  ---------> (this will give compile time error)
+public class Test {}
+
+
+ORDER OF STATEMENTS:
+PACKAGE STATEMENT (at most 1)        |
+IMPORT STATEMENTS (any number)       |     *order is important
+CLASS/INTERFACE/ENUM (any number)    |
+                                     V

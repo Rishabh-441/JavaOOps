@@ -1,0 +1,75 @@
+e.g.
+Object o = new String("Hello");
+StringBuffer sb = (StringBuffer) o;
+
+Syntax for typecasting:
+A b = (C) d;
+first 'd' is converted into 'C' type, the compiler checks whether it is valid or not.
+then the compiler will check if the assignment is legal or not.
+
+Rules:
+**Compiler will check only these two rules.
+1. Compile time check - 1:
+A b = (C) d;
+'C' and 'd' must have some relation : either parent-child or child-parent relation.
+e.g.
+//this code will compile without any error. (StringBuffer and Object class have child-parent relationship)
+public class Test41 {
+    public static void main(String[] args) {
+        Object o = new String("Hello");
+        StringBuffer sb = (StringBuffer) o;
+    }
+}
+
+e.g.
+//this code will give compile time error. (String and StringBuffer has no relationship).
+public class Test41 {
+    public static void main(String[] args) {
+        String str = "hello";
+        StringBuffer sb = (StringBuffer) str;
+    }
+}
+
+2. Compile time check - 2:
+A b = (C) d;
+'C' should be of same type as 'A' or must be the child class of 'A'.
+e.g.
+//at the time of typecasting there is no problem.
+//this will give compile time error. (C: String is neither same as A: StringBuffer or its child class)
+public class Test41 {
+    public static void main(String[] args) {
+        String str = new String("Hello");
+        StringBuffer sb = (String) str;
+    }
+}
+
+**Runtime checking by JVM:
+only one thing is checked by JVM at runtime.
+A b = (C) d;
+>> the type of internal runtime object of 'd' should be either same as 'C' or its derived type.
+the error that we will get is : ClassCastException
+
+e.g.
+//here we will not get any runtime error.
+public class Test41 {
+    public static void main(String[] args) {
+        Object str = new String("Hello");
+        //here the internal runtime object of 'str' is 'String'.
+        String sb = (String) str;
+        //A b = (C) d;
+        //the internal runtime object of d:'str' is same as C:'String'
+    }
+}
+
+e.g.
+//it will give ClassCastException at runtime.
+public class Test41 {
+    public static void main(String[] args) {
+        Object o = new String("Hello");
+        StringBuffer sb = (StringBuffer) o;
+        //A b = (C) d;
+        //the internal runtime object of d:'o' is String, but it is neither same as StringBuffer nor it is the derived type of StringBuffer.
+    }
+}
+
+

@@ -1,0 +1,39 @@
+>> variable resolution is done by compiler based on reference type.
+package class37MethodOverridingWRTVariables;
+
+public class Parent37 {
+    String s = "Parent";
+}
+class C extends Parent37 {
+    String s = "Child";
+}
+class Test {
+    public static void main(String[] args) {
+        Parent37 p = new Parent37();
+        System.out.println(p.s);
+
+        C c = new C();
+        System.out.println(c.s);
+
+        Parent37 p1 = new C();
+        System.out.println(p1.s);
+    }
+}
+//access modifiers for variables:
+P: instance
+C: instance
+O/P: parent
+    child
+    parent
+
+P: static
+C: non-static
+O/P: parent
+    child
+    parent
+
+P: non-static
+C: static
+O/P: parent
+    child
+    parent

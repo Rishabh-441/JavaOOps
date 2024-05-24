@@ -1,0 +1,46 @@
+Protected Modifier:
+<default> (only accessible in the same package) + outside package only accessible in child classes.
+
+eg.
+package class10protectedModifiers.Package11;
+public class AClass10 {
+    protected void m1 () {
+        System.out.println("A class protected method");
+    }
+}
+class B extends AClass10 {
+    public static void main(String[] args) {
+        AClass10 a = new AClass10();
+        a.m1();
+
+        B b = new B();
+        b.m1();
+
+        AClass10 a1 = new B(); <<-----**Parent reference can be used to hold child class object.
+        a1.m1();
+    }
+}
+//in the same package any class can access the protected members of the class.
+
+_____________________________________________________________________________
+NOTE:
+if we are using protected members outside the package in some child class, then parent reference can't be used, only child reference should be used to access the protected methods.
+
+eg.
+package class10protectedModifiers.Package22;
+
+import class10protectedModifiers.Package11.AClass10;
+
+public class BOutsidePackage extends AClass10{
+    public static void main(String[] args) {
+        AClass10 a = new AClass10();
+        a.m1(); <----this is incorrect, ERROR!! [m1() method has protected access in AClass10 class]
+
+        BOutsidePackage b = new BOutsidePackage();
+        b.m1(); <----this is correct, Compiles fine.
+
+        AClass10 a1 = new BOutsidePackage();
+        a1.m1(); <----this is incorrect, ERROR!! [m1() method has protected access in AClass10 class]
+
+    }
+}

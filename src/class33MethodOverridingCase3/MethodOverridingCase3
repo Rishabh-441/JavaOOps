@@ -1,0 +1,45 @@
+Rules:
+>> we can't reduce the scope of access modifier in method overriding.
+increasing order of scope of access modifier: private < default < protected < public
+
+e.g.
+package class33MethodOverridingCase3;
+
+public class Parent33 {
+    public void m1 () {
+
+    }
+}
+class C extends Parent33 {
+//reducing scope of access modifier
+    protected void m1 () { <---  it will give compile time error: attempting to assign weaker access privileges.
+
+    }
+}
+
+e.g.
+package class33MethodOverridingCase3;
+
+public class Parent33 {
+    protected void m1 () {
+
+    }
+}
+class C extends Parent33 {
+    public void m1 () { <--- here the scope of access modifier is increased.
+
+    }
+}
+
+*********************************************
+>> Parent method: public
+   child method: public
+
+>> Parent method: protected
+   child method: protected/public
+
+>> Parent method: default
+   child method: default/protected/public
+
+>> Parent method: private
+   child method: doesn't participate in method overriding

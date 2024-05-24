@@ -1,0 +1,38 @@
+1. IS-A relationship
+2. Code reusability : Members of the parents can be used by child classes.
+3. Extends keyword
+
+--Inheritance is from parent to child,
+All methods and data members of the parent class can be used by the child class, but the methods and data members defined in the child class cant be accessed by the parent class.
+On parent's reference, we can't access child class methods and data members.
+
+**NOTE: Object class is the root of all the java classes. (It has methods which are required for all the java classes). 
+
+eg.
+package class17Inheritance;
+
+public class Parent {
+    public void m1 () {
+        System.out.println("Method m1 in the parent class");
+    }
+}
+
+class C extends Parent {
+    public void m2 () {
+        System.out.println("Method m2 in C class");
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        Parent p = new C(); <<----we can declare child class by parent's reference.
+        p.m1();
+//        p.m2(); <<----but we can't access child class methods by parent's reference.
+
+        C c = new C();
+        c.m2();
+        c.m1();
+
+//        C c1 = new Parent();  <<----child can't hold the reference of the parent class object.
+    }
+}

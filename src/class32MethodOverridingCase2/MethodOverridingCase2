@@ -1,0 +1,41 @@
+Rules:
+1. Overriding methods are not applicable for private methods.
+e.g.
+package class32MethodOverridingCase2;
+
+public class Parent32 {
+    private void m1 () {
+
+    }
+}
+class C extends Parent32 {
+    //there is no relation between m1() method of child and parent class, hence no method overriding is there.
+    private void m1 () {
+
+    }
+}
+
+2. If the parent class method is declared final, then the overriding concept is not applicable.
+e.g.
+package class32MethodOverridingCase2;
+
+public class Parent32 {
+    public final void m1 () {
+
+    }
+}
+class C extends Parent32 {
+    public void m1 () { <-----this will give compile time error : overridden method is final.
+        return;
+    }
+}
+
+--> Parent Method: final
+    child Method: final/non-final <---compile time error
+
+--> Parent Method: non-final
+    child Method: final/non-final <--- acceptable
+
+--> Parent Method: abstract
+    child Method: abstract/ non-abstract <--- acceptable
+

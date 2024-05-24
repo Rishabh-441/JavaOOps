@@ -1,0 +1,24 @@
+Public:
+--can be accessed globally.
+--if the method of a class is public but hte class modifier is not public , then it cant be accessed from anywhere.
+
+
+Default:
+--can be accessed within the same package.
+--default level access is also called package level access.
+--if the class is public but the method is not mentioned (default), then also the method can't be accessed from outside the package.
+
+Private:
+--only accessible within the same class.
+eg.
+public class BClass9 {
+    private void print() {
+        System.out.println("private method");
+    }
+}
+class Tester {
+    public static void main(String[] args) {
+        BClass9 b = new BClass9();
+        b.print(); <----not accessible as this is a private method in the BClass9 class.
+    }
+}

@@ -1,0 +1,21 @@
+"Partially implemented classes - unimplemented methods" are declared abstract
+--instantiation is not allowed for abstract classes.
+--No one is allowed to create an object for an abstract class.
+--no methods can be used which are present in the class.
+--if a class has at least 1 abstract method, it should be declared as abstract.
+--even though if a class doesn't contains any abstract methods, then also the class can be declared as abstract.
+eg.
+abstract class Test {
+    public void m1 () {}  <--- this method has implementation, but its dummy.
+    public int m2 () {}         still, we can declare our class as abstract. (eg. Adapter class)
+}
+**this will work fine.
+-------------------------------
+eg.
+abstract class Test {
+    public static void main(String[] args) {
+        Test t = new Test();  <---instance of an abstract class.
+    }
+}
+** this will throw error.
+______________________________________________________________________

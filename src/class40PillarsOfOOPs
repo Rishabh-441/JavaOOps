@@ -1,0 +1,6 @@
+Three pillars of OOPs:
+1. Encapsulation - Security (data hiding, Abstraction)
+2. Inheritance - Reusability (extends keyword)
+3. Polymorphism - Flexibility (overloading, method hiding, overriding)
+
+*Parent reference and child instance is also example of polymorphism.

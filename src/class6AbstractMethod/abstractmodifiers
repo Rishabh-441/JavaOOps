@@ -1,0 +1,20 @@
+abstract modifiers applicable for :
+1. methods
+2. class
+
+abstract: not complete
+
+eg.
+if we don't know about implementation,
+//IF A CLASS CONTAINS AT LEAST ONE ABSTRACT METHOD, THEN THE CLASS MUST ALSO BE ABSTRACT.
+public abstract class Vehicle {     <------if the method is abstract then the class should also be abstract.
+    //abstract method has only declaration but not implementation, child classes are responsible to provide implementation.
+    public abstract int getNoOfWheels();    <-----no curly brackets
+}
+
+----------------------------------------------------------------
+eg.
+public abstract void m1() {};  (ERROR: ABSTRACT METHODS CAN'T HAVE A BODY)
+public void m1(); (ERROR)
+public abstract void m1(); (CORRECT)
+public void m1() {}; (CORRECT)

@@ -1,0 +1,24 @@
+Visibility                             | public              protected               default             private
+----------------------------------------------------------------------------------------------------------------------
+within the same class                  |   ok                  ok                      ok                   ok
+----------------------------------------------------------------------------------------------------------------------
+from child class of same package       |   ok                  ok                      ok                   X
+----------------------------------------------------------------------------------------------------------------------
+from non-child class of same package   |   ok                  ok                      ok                   X
+----------------------------------------------------------------------------------------------------------------------
+from child class of outside package    |   ok                  ok                      X                    X
+                                                (we should use child reference only)
+----------------------------------------------------------------------------------------------------------------------
+from non-child class of outside package|  ok                   X                      X                    X
+----------------------------------------------------------------------------------------------------------------------
+
+NOTE:
+Most accessible : Public
+Most restricted : Private
+
+Recommended:
+Data members: Private
+Methods: Public
+
+Scope:
+private < default < protected < public

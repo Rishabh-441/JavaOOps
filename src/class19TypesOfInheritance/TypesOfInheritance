@@ -1,0 +1,39 @@
+Types of Inheritance:
+1. Single Inheritance:
+single child class extends single parent class.
+
+Class Parent <<------- Class Child
+class Child extends Parent {}
+--------------------------------------------------
+2. Multiple Inheritance:
+single child class extends multiple parent classes.
+**Java won't provide support for multiple inheritance.
+
+class Parent1 <<------ class child ------>> class Parent2
+--------------------------------------------------
+3. Multi-Level Inheritance:
+class A <<---- class B <<---- class C
+
+class A {}
+class B extends A {//methods and data members of A are present in B}
+class C extends C {//methods and data members of A and B are present in C}
+--------------------------------------------------
+4. Hierarchical Inheritance:
+Group of single inheritances.
+                     class Child3
+                          |
+                          |
+                          V
+class Child1 ----->> class Parent <<----- class Child2
+
+class Parent{}
+class Child1 extends Parent{}
+class Child2 extends Parent{}
+class Child3 extends Parent{}
+--------------------------------------------------
+5. Hybrid inheritance:
+Hybrid of all types of inheritances.
+**It is not supported in java because java doesn't supports multiple inheritance.
+--------------------------------------------------
+
+**NOTE: Multiple inheritance and hybrid inheritance are not supported in java for classes but are supported for the interfaces.

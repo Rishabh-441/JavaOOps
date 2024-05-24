@@ -1,0 +1,32 @@
+Rule:
+>> we cannot override var args method with normal methods. It will be overloading and not overriding.
+>> If we want to override var args method, then the child method also should have var args.
+
+e.g.
+package class36MethodOVerridingVarArgs;
+
+public class Parent36 {
+    public void m1 (int... i) {
+        System.out.println("Parent");
+    }
+}
+class C extends Parent36 {
+    //This is not overriding, but overloading, as the type of argument is changed.
+    public void m1(int i) {
+        System.out.println("Child");
+    }
+}
+class Test {
+    public static void main(String[] args) {
+    //As this is method overloading, method resolution will be done on the basis of reference type.
+        Parent36 p = new Parent36();
+        p.m1(22); // Parent
+
+        C c = new C();
+        c.m1(23); // Child
+
+        Parent36 p1 = new C();
+        p1.m1(33); // Parent
+
+    }
+}

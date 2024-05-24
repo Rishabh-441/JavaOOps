@@ -1,0 +1,107 @@
+e.g.
+
+class Parent44 {
+    public void m1() {
+        System.out.println("Parent method");
+    }
+}
+class Child extends Parent44 {
+    public void m2() {
+        System.out.println("Child method");
+    }
+}
+public class Test44 {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.m1(); //parent method
+        c.m2(); //child method
+        ((Parent44)c).m1(); //parent method
+        ((Parent44)c).m2(); //compile time error
+        // equivalent to : Parent44 p = new Child();
+        // with parent reference we can't call child class method, child class methods are not visible to the parent class.
+    }
+}
+______________________________________________________________________________________
+
+e.g.
+package class44ObjectTypecastingQuestions;
+class A {
+    public void m1() {
+        System.out.println("A");
+    }
+}
+class B extends A {
+    public void m1() {
+        System.out.println("B");
+    }
+}
+class C extends B {
+    public void m1() {
+        System.out.println("C");
+    }
+}
+public class Test44b {
+    public static void main(String[] args) {
+        C c = new C();
+        c.m1(); // C
+        ((B)c).m1(); // C  ----> B b = new C();
+        ((A)((B)c)).m1(); // C  ----> A a = new C();
+        //As this is method overriding, the methods are resolved on the basis of runtime objects. In all the cases, the runtime object class is C.
+    }
+}
+
+______________________________________________________________________________________
+
+e.g.
+package class44ObjectTypecastingQuestions;
+class A1 {
+    public static void m1() {
+        System.out.println("A");
+    }
+}
+class B1 extends A1 {
+    public static void m1() {
+        System.out.println("B");
+    }
+}
+class C1 extends B1 {
+    public static void m1() {
+        System.out.println("C");
+    }
+}
+public class Test44c {
+    public static void main(String[] args) {
+        C1 c = new C1();
+        c.m1(); // C
+        ((B1)c).m1(); // B
+        ((A1)((B1)c)).m1(); // A
+        //As the methods of the parent and child classes are static, this concept is method hiding, and in method hiding,
+        methods are resolved based on reference type at compile time.
+    }
+}
+
+______________________________________________________________________________________
+
+e.g.
+package class44ObjectTypecastingQuestions;
+
+class A2 {
+    int x = 777;
+}
+class B2 extends A2 {
+    int x = 888;
+}
+class C2 extends B2 {
+    int x = 999;
+}
+public class Test44d {
+    public static void main(String[] args) {
+        C2 c = new C2();
+        System.out.println(c.x); // 999
+        System.out.println(((B2)c).x); // 888
+        System.out.println(((A2)((B2) c)).x); // 777
+        // variable resolution is done at compile time when there is method overriding.
+    }
+}
+
+

@@ -1,0 +1,18 @@
+Property                                    Overloading                                             Overriding
+__________________________________________________________________________________________________________________________________________________________________________________
+1.method names                              must be same                                            must be same
+__________________________________________________________________________________________________________________________________________________________________________________
+2.argument types                            must be different(at least order)                       must be same(including order)
+__________________________________________________________________________________________________________________________________________________________________________________
+3.private/final/static methods              can be overloaded                                       can't be overridden
+__________________________________________________________________________________________________________________________________________________________________________________
+4.return types                              no restrictions                                         must be same (till 1.4 version), co-variant return types (from 1.5 version)
+__________________________________________________________________________________________________________________________________________________________________________________
+5.Throws clause                             no restrictions                                         if child class method throws any checked exception, compulsory parent
+                                                                                                    class method should throw the same checked exception or parent.
+__________________________________________________________________________________________________________________________________________________________________________________
+6.Method resolution                         compiler based on reference type                        JVM based on runtime object
+__________________________________________________________________________________________________________________________________________________________________________________
+7.Other names                               Compile time polymorphism                               Runtime polymorphism
+                                            Static polymorphism                                     Dynamic polymorphism
+                                            early binding                                           late binding

@@ -1,0 +1,8 @@
+Abstraction:
+Hiding internal implementation, just highlight the set of services to be offered.
+By using interface concept and GUI, Abstraction is achieved.
+
+Advantages:
+1. Security.
+2. Enhancement will become easy, without affecting the end user.
+3. Maintainability and modularity will be improved.

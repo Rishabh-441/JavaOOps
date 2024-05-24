@@ -1,0 +1,10 @@
+Polymorphism:
+Poly - many
+morphs - forms
+
+There are two types of Polymorphism:
+1. static/compile time/early binding
+    a. overloading
+    b. method hiding
+2. dynamic/runtime/late binding
+    a. overriding

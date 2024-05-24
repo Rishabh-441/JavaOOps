@@ -1,0 +1,38 @@
+Overriding:
+If the child class is not satisfied with parent method implementation, then the child class can redefine the method based on its requirements.
+Overriding is also considered as "Runtime polymorphism", "dynamic polymorphism", or "Late binding".
+** In method overriding, method resolution is always done by the JVM based on runtime object.
+eg.
+package class30MethodOverriding;
+
+public class Parent30 {
+    public void property() {
+        System.out.println("cash + gold + land");
+    }
+
+    //overridden method
+    public void marry () {
+        System.out.println("xyz girl");
+    }
+}
+class Child extends Parent30 {
+    //overriding method
+    @Override
+    public void marry() {
+        System.out.println("abc girl");
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        Parent30 p = new Parent30();
+        p.marry(); //xyz girl
+
+        Child c = new Child();
+        c.marry(); //abc girl
+
+        Parent30 p1 = new Child(); <--- method will be resolved by runtime object.
+        //compiler will check marry() method is present in Parent30 class or not, but at runtime, child class object(runtime object) is used to resolve the method at runtime.
+        p1.marry(); //abc girl
+    }
+}

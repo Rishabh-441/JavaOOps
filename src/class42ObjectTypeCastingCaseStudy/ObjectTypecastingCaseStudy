@@ -1,0 +1,16 @@
+Object
+    |----Base1
+    |       |---Der1
+    |       |---Der2
+    |
+    |----Base2
+    |       |---Der3
+    |       |---Der4
+    |
+
+ Base2 b = new Der4();
+ Der4 d = (Der4) b; ----no compile time error, no runtime error
+ Base1 b1 = (Base1) b; ----compile time error
+ Base2 b2 = (Base2) b; ----no compile time error, no runtime error.
+ Object o = (Der3) b; ----no compile time error, runtime exception will occur
+ Base2 b3 = (Base1) b; ----compile time error

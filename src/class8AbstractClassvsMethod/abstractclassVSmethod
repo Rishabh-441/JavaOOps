@@ -1,0 +1,22 @@
+package class8AbstractClassvsMethod;
+
+abstract class Test {  <----we cant make object for this class
+    public abstract void m1();
+    public abstract void m2();
+}
+//if this class is not abstract, then it will have to implement all the abstract methods of the parent class, but as it is an abstract class,
+the child class of this SubTest (i.e. SubSubTest) will have to implement all the abstract methods of the abstract Test Class.
+public abstract class SubTest extends Test {} <---- we cant make object for this class.
+
+class SubSubTest extends SubTest { <----if the child class is not abstract, then it will have to provide implementation of all the abstract methods of the parent class.(Mandatory)
+
+    @Override
+    public void m1() {
+
+    }
+
+    @Override
+    public void m2() {
+
+    }
+}

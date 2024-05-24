@@ -1,0 +1,62 @@
+CLASS LEVEL MODIFIERS:
+(This information is provided to the JVM, so that it can use the class accordingly)
+1. public:
+no restrictions (can be accessed from anywhere)
+
+2. default: (nothing is mentioned before the class)
+only within the package.
+
+3. abstract:
+if the class is abstract, then we can not create instance of the particular class.
+
+4. final:
+child class creation is not possible.
+
+
+NOTE:
+we can declare top level classes with modifiers:
+--public, default, abstract, final, strictfp
+
+for inner classes:
+--all top level class modifiers + private, protected, static.
+
+_____________________________________________________________________________________
+
+
+eg.
+package class5classLevelModifiers;
+
+public class A  {
+}
+
+**first compile this class.
+compile : javac A.java
+----------------
+package zTesterPackage;
+
+import class5classLevelModifiers.A;
+
+public class B {
+    public static void main(String[] args) {
+        A a = new A();
+    }
+}
+**then compile this class like :
+compile : javac zTesterPackage/B.java
+(we will compile it like this because the compiler knows that the A.class file is in that directory.)
+
+run : java zTesterPackage/B
+-----------------
+When you compile a Java class with a package declaration, the compiler generates a corresponding directory structure matching the package hierarchy. This means that if you have a class B within the package zTesterPackage, the compiler will generate a B.class file inside a directory named zTesterPackage.
+
+When you run a Java program, the Java Virtual Machine (JVM) expects the fully qualified name of the class (including the package name) as an argument. This is because the JVM needs to locate the class file relative to the classpath. If you just provide the class name without the package name, the JVM won't be able to find the class file in the correct directory structure.
+
+Therefore, when you run a Java program with a package, you need to provide the fully qualified class name (i.e., including the package name) to ensure that the JVM can locate and execute the class file correctly.
+
+For example, if you have a class B in package zTesterPackage, you should run it using:
+
+code:f
+java zTesterPackage.B
+This tells the JVM to look for the B.class file inside the zTesterPackage directory relative to the classpath. Providing the fully qualified class name helps avoid any ambiguity in locating the class file, especially in projects with multiple packages and class dependencies.
+
+

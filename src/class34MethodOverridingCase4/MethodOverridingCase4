@@ -1,0 +1,59 @@
+Throwable class
+    1. Exception class
+        a. Runtime exception
+            i. Arithmetic exception
+            ii. Null pointer exception
+            iii. Class cached exception
+            ...
+        b. IO exception
+            i. File not found exception
+            ii. EOF exception
+            ...
+        c. IE
+        d. SE
+        ....
+    2. Error class
+        a. VM error
+            i. OutOfMemory error
+            ii. Stackoverflow error
+            ...
+
+** Runtime Exception and its child classes, Error class and its child classes are Unchecked exceptions, others are Checked Exception.
+**Unchecked exceptions: Compiler doesn't checks if the class handles the exception or not.
+Rule:
+if child class throws any checked exception, then the parent class must throw the same exception or the parent of that exception class.
+No restrictions for unchecked exceptions.
+
+e.g.
+
+>>Correct
+P : public void m1() throws Exception
+C : public void m1()
+
+>>Incorrect
+P : public void m1()
+C : public void m1() throws Exception
+
+>>Incorrect
+P : public void m1() throws IOException
+C : public void m1() throws Exception
+
+>>Correct
+P : public void m1() throws Exception
+C : public void m1() throws IOException
+
+>>Correct
+P : public void m1() throws IOException
+C : public void m1() throws EOFException, FNFE
+
+>>Incorrect
+P : public void m1() throws IOException
+C : public void m1() throws EOFException, IE
+
+>>Correct
+P : public void m1() throws IOException
+C : public void m1() throws EOFException, NPE
+
+>>Correct
+P : public void m1() throws IOException
+C : public void m1() throws AE, NPE

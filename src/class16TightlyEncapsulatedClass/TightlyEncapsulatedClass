@@ -1,0 +1,36 @@
+Tightly Encapsulated Class:
+all the data members are private. (100% data hiding)
+
+eg.
+package class16TightlyEncapsulatedClass;
+public class AClass16 {
+    private int x = 10; <<----tightly encapsulated class
+}
+
+class B extends AClass16{
+    int y = 20; <<-----not tightly encapsulated
+}
+
+class C extends AClass16 {
+    private int z = 30; <<-----tightly encapsulated class
+}
+_______________________________________________
+
+NOTE:
+If the parent class not tightly encapsulated, then no child class is tightly encapsulated.
+
+eg.
+package class16TightlyEncapsulatedClass;
+
+public class AClass16 {
+    int x = 10;  <<-----not tightly encapsulated
+}
+
+class B extends AClass16{
+    private int y = 20;  <<-----not tightly encapsulated (Parent class is not tightly encapsulated)
+}
+
+class C extends B {
+    private int z = 30;  <<-----not tightly encapsulated (Parent class of the parent class is not tightly encapsulated)
+}
+

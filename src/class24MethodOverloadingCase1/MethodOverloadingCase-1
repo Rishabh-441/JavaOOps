@@ -1,0 +1,31 @@
+Promotion chart:
+byte --> short --> int --> long --> float --> double
+                    ^
+                    |
+                   char
+-->Automatic promotion in method overloading:
+if the definition of any method doesn't have matching arguments, then the compiler automatically promotes the arguments to the next level
+and tries to match the definition, if none of the argument matches the definition, then only it will throw error at compile time.
+
+eg.
+package class24MethodOverloadingCase1;
+
+public class Tester24 {
+    public void m1 (int i) {
+        System.out.println("int m1 method");
+    }
+
+    public void m1 (float f) {
+        System.out.println("float m1 method");
+    }
+
+    public static void main(String[] args) {
+        Tester24 t = new Tester24();
+        t.m1(23);
+        t.m1(10.5f);
+        t.m1('a'); --> compiler promotes character to integer.m1(int) will be used.
+        t.m1(10l); --> compiler promotes long to float . m1(float) will be used.
+        t.m1(12.5); --> the argument is of double type, and there is not any method m1 with double parameter, and also the compiler won't be able to
+                        promote further, so this will give compile time error after checking all the available overloaded methods.
+    }
+}

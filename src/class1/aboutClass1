@@ -1,0 +1,33 @@
+Java source file structure:
+--in java program we can take any no.of classes.
+--a java program can contain at most 1 public classes. (else compile time error)
+--if we don't have any public class in the java program, then the name of file can be anything (the class may or may not be present in the program), if the public class is present then the name of the java file should be same as the public class of java.
+
+File name: Durga.java
+class A {}
+class B {}
+
+-----------------------------------
+eg. Durga.java
+package class1;
+
+class A {
+    public static void main(String[] args) {
+        System.out.println("A");
+    }
+}
+class B {
+    public static void main(String[] args) {
+        System.out.println("B");
+    }
+}
+class C {
+    public static void main(String[] args) {
+        System.out.println("C");
+    }
+}
+
+--for every class, a .class file is going to be generated after compilation.
+--when we compile (javac Durga.java),a separate .class files of class A, B, C is generated.
+--but when we want to execute, we will execute those classes, which have main method.
+------------------------------------------

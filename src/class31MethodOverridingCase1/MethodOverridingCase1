@@ -1,0 +1,29 @@
+Rules of method overriding:
+1. Method signature (Method name + argument) types should be same.
+
+2. From 1.4 version, co-variant return types also allowed in java.
+Co-variant return type : at the time of overriding, the return type can be the child class of the the original return type.
+eg.
+package class31MethodOverridingCase1;
+public class Parent31 {
+    public Object m1 () {
+        return null;
+    }
+}
+class C extends Parent31 {
+    public String m1 () {
+        return null;
+    }
+}
+//here, in C class, the return type has been changed to String, which is the child class of Object class (return type of m1() method in Parent31 class).
+
+Examples of Co-variant return type:
+-->Parent Method return type: Object
+   Child method return type: Object/String/StringBuffer...
+
+--> Parent Method return type: Number
+    Child method return type: Number/Short/Byte/Integer/Long/Float/Double.
+
+--> Parent Method return type: double
+    Child method return type: int <----- compiler error
+    //co-variant return types is not allowed with primitive data types, only allowed for Object types.

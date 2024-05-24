@@ -1,0 +1,76 @@
+**Multiple inheritance is not supported in java classes.
+class C extends P1, P2 {}  <<-------Compile time error.
+
+eg.
+package class20MultipleInheritance;
+
+class P1 {
+    public void m1() {
+        System.out.println("m1 method of p1");
+    }
+}
+class P2 {
+    public void m1() {
+        System.out.println("m1 method of p2");
+    }
+}
+public class Child extends P1, P2{ <<-----It is not allowed to extend more than one class in java.
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.m1(); <<----------this will create ambiguity that from which parent class to use this method, as both of the parent classes have m1() method. There is no way to resolve this ambiguity.
+    }
+}
+_________________________________________________________________
+
+** In java, multiple inheritance is supported by Interfaces.
+
+eg.
+package class20MultipleInheritance;
+
+public interface P1Interface {
+    public void m1();
+    public void m2();
+}
+
+interface P2Interface {
+    public void m1();
+    public void m2();
+}
+
+class ChildClass implements P1Interface, P2Interface {
+    @Override
+    public void m1() {
+        System.out.println("Child implements m1() method");
+    }
+
+    @Override
+    public void m2() {
+        System.out.println("child implements m2() method");
+    }
+}
+
+____________________________________________________________________
+
+**Python supports Multiple Inheritance:
+Python resolves the ambiguity by giving the preference to the class which contains the specific method by checking the classes from left to right provided in the argument of the Child class.
+
+eg.
+class P1:
+    def m1(self):
+        print("m1 of P1")
+
+class P2:
+    def m1(self):
+        print("m1 of P2")
+
+class Child (P1, P2): <<-----if we change the order to (P2, P1) then the method m1() present in P2 will be executed.
+    pass
+
+c = C()
+c.m1() <<--------as P1 is present before P2 in the argument, this m1() method is executed of the P1 class.
+//output: m1 of P1
+
+_______________________________________________________________________
+
+Question: If Object class is the parent of all the classes in java then when we extend some other class in the child class, then it will have two parent classes, then how here java supports multiple inheritance?
+Answer: Whenever a class doesn't extends some other class, then only Object class is the direct parent of that class, otherwise, when a class extends some other class, then Object class is not the direct parent of that class.
